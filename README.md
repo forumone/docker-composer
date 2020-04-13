@@ -6,7 +6,8 @@ Images built from this repository are simply the Docker Hub's [`library/composer
 
 Currently, we build the following versions of Composer:
 
-- `1.9`, `1`, `latest`
+- `1.10`, `1`, `latest`
+- `1.9`
 - `1.8`
 - `1.7`
 
