@@ -26,6 +26,8 @@ function create-step() {
   - label: ":docker: :composer: v$minor"
     commands:
       - bash .buildkite/build.sh $version $minor ${composer_versions[$version]}
+    concurrency: 5
+    concurrency_group: "f1/docker"
     plugins:
       - seek-oss/aws-sm#v2.0.0:
           env:
