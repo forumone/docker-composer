@@ -10,7 +10,8 @@ shopt -s extglob
 declare -A composer_versions=(
   [1.7.3]=""
   [1.8.6]=""
-  [1.9.1]="1 latest"
+  [1.9.3]=""
+  [1.10.4]="1 latest"
 )
 
 # Usage: create-step <version>
@@ -25,6 +26,8 @@ function create-step() {
   - label: ":docker: :composer: v$minor"
     commands:
       - bash .buildkite/build.sh $version $minor ${composer_versions[$version]}
+    concurrency: 5
+    concurrency_group: "f1/docker"
     plugins:
       - seek-oss/aws-sm#v2.0.0:
           env:
