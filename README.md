@@ -1,15 +1,16 @@
 # About this Image
 
-Images built from this repository are simply the Docker Hub's [`library/composer`](https://hub.docker.com/_/composer) image, but with [hirak/prestissimo](https://packagist.org/packages/hirak/prestissimo) pre-installed globally.
+Images built from this repository are parallel implementations of the Docker Hub's [`library/composer`](https://hub.docker.com/_/composer) image,
+but they are built on top of PHP 7.4 to sidestep dependency resolution issues with the community image being built on PHP 8.
+
+Images with Composer `1.10` are built with [hirak/prestissimo](https://packagist.org/packages/hirak/prestissimo) pre-installed globally.
 
 ## Composer Versions and Tags
 
 Currently, we build the following versions of Composer:
 
-- `1.10`, `1`, `latest`
-- `1.9`
-- `1.8`
-- `1.7`
+- `2.0`, `2`, `latest`
+- `1.10`, `1`
 
 ## License
 
