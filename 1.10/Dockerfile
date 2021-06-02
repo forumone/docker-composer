@@ -25,7 +25,7 @@ RUN printf "# composer php cli ini settings\n\
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
-ENV COMPOSER_VERSION 2.0.13
+ENV COMPOSER_VERSION 1.10.22
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
