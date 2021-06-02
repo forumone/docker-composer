@@ -8,19 +8,16 @@ set -euo pipefail
 
 repository=forumone/composer
 
-# Save the version specially (we need it as a build arg)
-version="$1"
-shift
+# Save the minor version specifically (we need it to target the Dockerfile)
+version="$2"
 
 # Capture the version and any other tags as --tag arguments for docker build
-tag_args=("--tag" "$repository:$version")
 for tag in "$@"; do
   tag_args+=("--tag" "$repository:$tag")
 done
 
 echo '--- :docker: Build'
-docker build . \
-  --build-arg "COMPOSER_VERSION=$version" \
+docker build  "./${version}" \
   "${tag_args[@]}"
 
 if test "$BUILDKITE_BRANCH" == master && test "$BUILDKITE_PULL_REQUEST" == false; then
