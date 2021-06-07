@@ -9,7 +9,7 @@ Images with Composer `1.10` are built with [hirak/prestissimo](https://packagist
 
 Currently, we build the following versions of Composer:
 
-- `2.0`, `2`, `latest`
+- `2.1`, `2`, `latest`
 - `1.10`, `1`
 
 ## License
