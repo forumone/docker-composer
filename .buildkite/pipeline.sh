@@ -9,7 +9,7 @@ shopt -s extglob
 # versioning scheme matches what's on the Docker Hub.
 declare -A composer_versions=(
   [1.10.22]="1"
-  [2.0.14]="2 latest"
+  [2.1.1]="2 latest"
 )
 
 # Usage: create-step <version>
