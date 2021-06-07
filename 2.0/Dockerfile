@@ -1,6 +1,6 @@
 FROM composer:2.0.14 AS composer
 
-FROM php:7.4.10-cli-alpine
+FROM php:8.0.7-cli-alpine
 
 # Dependencies copied from the community composer image.
 # See https://github.com/composer/docker/blob/master/1.10/Dockerfile.
