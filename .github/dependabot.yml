@@ -1,13 +1,13 @@
 version: 2
 updates:
-  # Track updates for the 1.10 Composer release
+  # Track updates for the v1 Composer release
   - package-ecosystem: "docker"
-    directory: "1.10/"
+    directory: "1/"
     schedule:
       interval: "weekly"
 
-  # Track updates for the 2.0 Composer release
+  # Track updates for the v2 Composer release
   - package-ecosystem: "docker"
-    directory: "2.0/"
+    directory: "2/"
     schedule:
       interval: "weekly"
