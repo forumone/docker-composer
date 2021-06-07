@@ -9,7 +9,7 @@ set -euo pipefail
 repository=forumone/composer
 
 # Save the major version specifically (we need it to target the Dockerfile)
-version="$1"
+version="$3"
 
 # Capture the version and any other tags as --tag arguments for docker build
 for tag in "$@"; do
