@@ -1,4 +1,4 @@
-FROM composer:1.10.22 AS composer
+FROM composer:1.10.23 AS composer
 
 FROM php:7.4.26-cli-alpine
 
