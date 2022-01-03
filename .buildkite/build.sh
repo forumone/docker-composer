@@ -22,5 +22,5 @@ docker build  "./${version}" \
 
 if test "$BUILDKITE_BRANCH" == master && test "$BUILDKITE_PULL_REQUEST" == false; then
   echo "--- :docker: Push"
-  docker push "$repository"
+  docker push --all-tags "$repository"
 fi
