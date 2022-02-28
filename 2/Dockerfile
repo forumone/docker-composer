@@ -1,4 +1,4 @@
-FROM composer:2.2.7 AS composer
+FROM composer:2.2.6 AS composer
 
 FROM php:7.4.28-cli-alpine
 
@@ -25,7 +25,7 @@ RUN printf "# composer php cli ini settings\n\
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
-ENV COMPOSER_VERSION 2.2.7
+ENV COMPOSER_VERSION 2.2.6
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
