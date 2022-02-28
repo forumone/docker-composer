@@ -8,8 +8,8 @@ shopt -s extglob
 # the sole exception of minor versions, since those can be auto-generated safely. This
 # versioning scheme matches what's on the Docker Hub.
 declare -A composer_versions=(
-  [1.10.23]="1"
-  [2.1.14]="2 latest"
+  [1.10.25]="1"
+  [2.2.6]="2 latest"
 )
 
 # Usage: create-step <version>

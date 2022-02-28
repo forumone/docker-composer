@@ -1,6 +1,6 @@
-FROM composer:1.10.23 AS composer
+FROM composer:1.10.25 AS composer
 
-FROM php:7.4.26-cli-alpine
+FROM php:7.4.28-cli-alpine
 
 # Dependencies copied from the community composer image.
 # See https://github.com/composer/docker/blob/master/1.10/Dockerfile.
@@ -25,7 +25,7 @@ RUN printf "# composer php cli ini settings\n\
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
-ENV COMPOSER_VERSION 1.10.23
+ENV COMPOSER_VERSION 1.10.25
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
