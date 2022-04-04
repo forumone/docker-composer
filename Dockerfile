@@ -1,6 +1,10 @@
-FROM composer:2.2.9 AS composer
+ARG COMPOSER_VERSION
+ARG PHP_VERSION
 
-FROM php:7.4.28-cli-alpine
+FROM composer:${COMPOSER_VERSION} AS composer
+
+FROM php:${PHP_VERSION}-cli-alpine
+
 
 # Dependencies copied from the community composer image.
 # See https://github.com/composer/docker/blob/master/1.10/Dockerfile.
@@ -25,9 +29,12 @@ RUN printf "# composer php cli ini settings\n\
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
-ENV COMPOSER_VERSION 2.2.9
+ENV COMPOSER_VERSION ${COMPOSER_VERSION}
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+# Install the prestissimo plugin to speed operations on Composer 1.
+RUN if [[ "1" -eq `echo $COMPOSER_VERSION | cut -d. -f1` ]]; then composer global require hirak/prestissimo; fi;
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
