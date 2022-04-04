@@ -1,7 +1,7 @@
 # About this Image
 
 Images built from this repository are parallel implementations of the Docker Hub's [`library/composer`](https://hub.docker.com/_/composer) image,
-with Composer `1.10` are built with [hirak/prestissimo](https://packagist.org/packages/hirak/prestissimo) pre-installed globally.
+with Composer version `1.10` is built with [hirak/prestissimo](https://packagist.org/packages/hirak/prestissimo) pre-installed globally.
 
 ## Composer Versions and Tags
 

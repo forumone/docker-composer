@@ -27,8 +27,8 @@ definitions:
   plugins:
     seek: &seek
       seek-oss/aws-sm#v2.0.0:
-      env:
-        DOCKER_LOGIN_PASSWORD: buildkite/dockerhubid
+        env:
+         DOCKER_LOGIN_PASSWORD: buildkite/dockerhubid
     docker-login: &docker-login
       docker-login#v2.0.1:
         username: f1builder
