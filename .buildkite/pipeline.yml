@@ -46,8 +46,7 @@ steps:
     command:
       - *docker-build
     matrix:
-      setup:
-        <<: *matrix-setup
+      <<: *matrix-setup
   - label: ":pipeline: Deploy :composer: {{matrix.composer_version}}-php-{{matrix.php}}"
     <<: *docker-agents
     plugins:
@@ -63,5 +62,4 @@ steps:
       - *docker-build
       - *docker-push
     matrix:
-      setup:
-        <<: *matrix-setup
+      <<: *matrix-setup
