@@ -7,13 +7,14 @@ definitions:
   step-defaults: &step-defaults
     timeout_in_minutes: 15
   matrix-setup: &matrix-setup
-    php:
-      - "7.4"
-      - "8.0"
-    composer_version:
-      - "1.10"
-      - "2.2"
-      - "2.3"
+    setup:
+      php:
+        - "7.4"
+       - "8.0"
+      composer_version:
+       - "1.10"
+       - "2.2"
+       - "2.3"
   docker-build: &docker-build
     - "docker build -t $DOCKER_HUB_REPO:{{matrix.composer_version}}-php-{{matrix.php}} --build-arg PHP_VERSION={{matrix.php}} --build-arg COMPOSER_VERSION={{matrix.composer_version}} ."
   docker-push: &docker-push
