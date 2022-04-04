@@ -15,9 +15,9 @@ definitions:
       - "2.2"
       - "2.3"
   docker-build: &docker-build
-    - "docker build -t $DOCKER_HUB_REPO:{{matrix.composer}}-php-{{matrix.php}} --build-arg PHP_VERSION={{matrix.php}} --build-arg COMPOSER_VERSION={{matrix.composer}} ."
+    - "docker build -t $DOCKER_HUB_REPO:{{matrix.composer_version}}-php-{{matrix.php}} --build-arg PHP_VERSION={{matrix.php}} --build-arg COMPOSER_VERSION={{matrix.composer}} ."
   docker-push: &docker-push
-    - "docker push $DOCKER_HUB_REPO:{{matrix.composer}}-php-{{matrix.php}}"
+    - "docker push $DOCKER_HUB_REPO:{{matrix.composer_version}}-php-{{matrix.php}}"
   queues:
     # Docker-based tasks should run in the Docker queue.
     docker-agents: &docker-agents
