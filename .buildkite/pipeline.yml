@@ -1,0 +1,65 @@
+env:
+  DOCKER_HUB_REPO: 'forumone/composer'
+
+# Consolidate the common configuration for reuse across multiple steps.
+definitions:
+  # Configure some default step values.
+  step-defaults: &step-defaults
+    timeout_in_minutes: 15
+  matrix-setup: &matrix-setup
+    setup:
+      php:
+        - "7.4"
+        - "8.0"
+      composer_version:
+        - "1.10"
+        - "2.2"
+        - "2.3"
+  docker-build: &docker-build
+    - "docker build -t $DOCKER_HUB_REPO:{{matrix.composer_version}}-php-{{matrix.php}} --build-arg PHP_VERSION={{matrix.php}} --build-arg COMPOSER_VERSION={{matrix.composer_version}} ."
+  docker-push: &docker-push
+    - "docker push $DOCKER_HUB_REPO:{{matrix.composer_version}}-php-{{matrix.php}}"
+  queues:
+    # Docker-based tasks should run in the Docker queue.
+    docker-agents: &docker-agents
+      agents:
+        queue: "docker-builders"
+  plugins:
+    seek: &seek
+      seek-oss/aws-sm#v2.0.0:
+        env:
+         DOCKER_LOGIN_PASSWORD: buildkite/dockerhubid
+    docker-login: &docker-login
+      docker-login#v2.0.1:
+        username: f1builder
+        password-env: DOCKER_LOGIN_PASSWORD
+
+steps:
+  - label: ":pipeline: Build :composer: {{matrix.composer_version}}-php-{{matrix.php}}"
+    <<: *docker-agents
+    retry:
+      automatic:
+        - exit_status: -1
+          limit: 2
+    branches:
+      - !master
+    command:
+      - *docker-build
+    matrix:
+      <<: *matrix-setup
+  - label: ":pipeline: Deploy :composer: {{matrix.composer_version}}-php-{{matrix.php}}"
+    <<: *docker-agents
+    plugins:
+      <<: *seek
+      <<: *docker-login
+    branches:
+      - master
+    retry:
+      automatic:
+        - exit_status: -1
+          limit: 2
+    command:
+      - *docker-build
+      - *docker-push
+    matrix:
+      <<: *matrix-setup
