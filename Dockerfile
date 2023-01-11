@@ -25,7 +25,8 @@ RUN set -eux; \
   zip
 
 # installing php extention needing for craftCMS
-RUN install-php-extensions zip
+RUN install-php-extensions zip \
+     gd
 
 RUN printf "# composer php cli ini settings\n\
   date.timezone=UTC\n\
