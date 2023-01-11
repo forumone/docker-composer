@@ -5,6 +5,8 @@ FROM composer:${COMPOSER_VERSION} AS composer
 
 FROM php:${PHP_VERSION}-cli-alpine
 
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
+
 
 # Dependencies copied from the community composer image.
 # See https://github.com/composer/docker/blob/master/1.10/Dockerfile.
@@ -21,6 +23,9 @@ RUN set -eux; \
   tini \
   unzip \
   zip
+
+# installing php extention needing for craftCMS
+RUN install-php-extensions ext-zip
 
 RUN printf "# composer php cli ini settings\n\
   date.timezone=UTC\n\
