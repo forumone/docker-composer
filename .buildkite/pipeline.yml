@@ -11,6 +11,7 @@ definitions:
       php:
         - "8.0"
         - "8.1"
+        - "8.2"
       composer_version:
         - "1.10"
         - "2.2"
@@ -45,7 +46,7 @@ steps:
         - exit_status: -1
           limit: 2
     branches:
-      - !master
+      - !main
     command:
       - *docker-build
     matrix:
@@ -56,7 +57,7 @@ steps:
       <<: *seek
       <<: *docker-login
     branches:
-      - master
+      - main
     retry:
       automatic:
         - exit_status: -1
