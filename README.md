@@ -10,14 +10,18 @@ Currently, we build the following versions of `Composer` & `PHP`:
 - `2.2-php-7.4`
 - `2.2-php-8.0`
 - `2.2-php-8.1`
+- `2.2-php-8.2`
 - `2.3-php-8.0`
 - `2.3-php-8.1`
+- `2.3-php-8.2`
 - `2.4-php-8.0`
 - `2.4-php-8.1`
+- `2.4-php-8.2`
 - `2.5-php-8.0`
 - `2.5-php-8.1`
 - `1.10-php-8.0`
 - `1.10-php-8.1`
+- `1.10-php-8.2`
 
 ## License
 
