@@ -19,6 +19,10 @@ Currently, we build the following versions of `Composer` & `PHP`:
 - `2.4-php-8.2`
 - `2.5-php-8.0`
 - `2.5-php-8.1`
+- `2.5-php-8.2`
+- `2.6-php-8.0`
+- `2.6-php-8.1`
+- `2.6-php-8.2`
 - `1.10-php-8.0`
 - `1.10-php-8.1`
 - `1.10-php-8.2`
