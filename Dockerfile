@@ -22,10 +22,6 @@ RUN set -eux; \
   unzip \
   zip
 
-
-RUN set -eux; \
-    apt install -y
-
 # installing php extention needing for craftCMS
 RUN install-php-extensions zip
 
