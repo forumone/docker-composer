@@ -3,26 +3,28 @@ ARG PHP_VERSION
 
 FROM composer:${COMPOSER_VERSION} AS composer
 
-FROM php:${PHP_VERSION}-cli-alpine
+FROM php:${PHP_VERSION}-cli-bullseye
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
+RUN apt update;
 
 # Dependencies copied from the community composer image.
 # See https://github.com/composer/docker/blob/master/1.10/Dockerfile.
 RUN set -eux; \
-  apk add --no-cache --virtual .composer-rundeps \
-  bash \
+  apt install -y \
   coreutils \
   git \
   make \
-  mercurial \
   openssh-client \
   patch \
-  subversion \
   tini \
   unzip \
   zip
+
+
+RUN set -eux; \
+    apt install -y
 
 # installing php extention needing for craftCMS
 RUN install-php-extensions zip
