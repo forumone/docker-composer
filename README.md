@@ -1,40 +1,13 @@
 # About this Image
 
-Images built from this repository are parallel implementations of the Docker Hub's [`library/composer`](https://hub.docker.com/_/composer) image,
-with Composer version `1.10` is built with [hirak/prestissimo](https://packagist.org/packages/hirak/prestissimo) pre-installed globally.
+Images built from this repository are parallel implementations of the Docker Hub's [`library/composer`](https://hub.docker.com/_/composer) image.
 
-## Composer Versions and Tags
+## Versions and Tags
 
-Currently, we build the following versions of `Composer` & `PHP`:
+* Supported PHP versions: 8.3, 8.2, 8.1, 8.0
+* Supported Composer versions: 2.7, 2.6, 2.5, 2.4, 2.3, 2.2
 
-- `2.2-php-7.4`
-- `2.2-php-8.0`
-- `2.2-php-8.1`
-- `2.2-php-8.2`
-- `2.2-php-8.3`
-- `2.3-php-8.0`
-- `2.3-php-8.1`
-- `2.3-php-8.2`
-- `2.3-php-8.3`
-- `2.4-php-8.0`
-- `2.4-php-8.1`
-- `2.4-php-8.2`
-- `2.4-php-8.3`
-- `2.5-php-8.0`
-- `2.5-php-8.1`
-- `2.5-php-8.2`
-- `2.5-php-8.3`
-- `2.6-php-8.0`
-- `2.6-php-8.1`
-- `2.6-php-8.2`
-- `2.6-php-8.3`
-- `2.7-php-8.0`
-- `2.7-php-8.1`
-- `2.7-php-8.2`
-- `2.7-php-8.3`
-- `1.10-php-8.0`
-- `1.10-php-8.1`
-- `1.10-php-8.2`
+Tags are constructed using `${COMPOSER_VERSION}-php-${PHP_VERSION}`. For example, Composer 2.7 running on PHP 8.3 is `2.7-php-8.3`.
 
 ## License
 

@@ -36,9 +36,6 @@ ENV COMPOSER_VERSION ${COMPOSER_VERSION}
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-# Install the prestissimo plugin to speed operations on Composer 1.
-RUN if [[ "1" -eq `echo $COMPOSER_VERSION | cut -d. -f1` ]]; then composer global require hirak/prestissimo; fi;
-
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 WORKDIR /app
