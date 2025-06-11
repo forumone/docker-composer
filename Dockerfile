@@ -3,27 +3,22 @@ ARG PHP_VERSION
 
 FROM composer:${COMPOSER_VERSION} AS composer
 
-FROM php:${PHP_VERSION}-cli-bullseye
-
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
-
-RUN apt update;
+FROM public.ecr.aws/forumone/php-cli:${PHP_VERSION}
 
 # Dependencies copied from the community composer image.
 # See https://github.com/composer/docker/blob/master/1.10/Dockerfile.
-RUN set -eux; \
-  apt install -y \
-  coreutils \
-  git \
-  make \
-  openssh-client \
-  patch \
-  tini \
-  unzip \
-  zip
-
-# installing php extention needing for craftCMS
-RUN install-php-extensions zip
+RUN set -eux \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends \
+    coreutils \
+    git \
+    make \
+    openssh-client \
+    patch \
+    tini \
+    unzip \
+    zip \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN printf "# composer php cli ini settings\n\
   date.timezone=UTC\n\
