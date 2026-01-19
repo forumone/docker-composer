@@ -10,8 +10,8 @@ RUN install-php-extensions soap
 
 ## Versions and Tags
 
-* Supported PHP versions: 8.3, 8.2, 8.1
-* Supported Composer versions: 2.8, 2.7, 2.6, 2.5, 2.4, 2.3, 2.2
+* Supported PHP versions: 8.5, 8.4, 8.3, 8.2, 8.1
+* Supported Composer versions: 2(latest-2.x), 2.9, 2.8, 2.7, 2.6, 2.5, 2.4, 2.3, 2.2
 
 Tags are constructed using `${COMPOSER_VERSION}-php-${PHP_VERSION}`. For example, Composer 2.8 running on PHP 8.3 is `2.8-php-8.3`.
 
