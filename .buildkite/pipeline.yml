@@ -13,6 +13,8 @@ definitions:
         - "8.1"
         - "8.2"
         - "8.3"
+        - "8.4"
+        - "8.5"
       composer:
         - "2"
         - "2.2"
@@ -22,6 +24,7 @@ definitions:
         - "2.6"
         - "2.7"
         - "2.8"
+        - "2.9"
 
   agents-amd64: &agents-amd64
     queue: docker-builders
